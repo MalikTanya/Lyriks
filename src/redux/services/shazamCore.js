@@ -7,7 +7,7 @@ export const shazamCoreApi = createApi({
     prepareHeaders: (headers) => {
       headers.set(
         "X-RapidAPI-Key",
-        "ecc902b60dmshd6cb79540646b2cp1b2fdejsnd4d9ec4d3a89"
+        import.meta.env.VITE_SHAZAM_CORE_RAPID_API_KEY
       );
       headers.set("X-RapidAPI-Host", "shazam-core.p.rapidapi.com");
 
@@ -20,7 +20,7 @@ export const shazamCoreApi = createApi({
       query: (genre) => `v1/charts/genre-world?genre_code=${genre}`,
     }),
     getSongsByCountry: builder.query({
-      query: (countryCode) => `v1/charts/country?country_code=IN`,
+      query: (countryCode) => `v1/charts/country?country_code=${countryCode}`,
     }),
     getSongsBySearch: builder.query({
       query: (searchTerm) =>
